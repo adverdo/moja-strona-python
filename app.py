@@ -12,5 +12,9 @@ def home():
 def o_mnie():
     return "<h2>Tutaj w przyszłości też możesz dodać ładny szablon HTML!</h2>"
 
+@app.route("/sekret")
+def sekret():
+    return render_template("sekret.html")
+    
 if __name__ == "__main__":
     app.run(debug=True)
