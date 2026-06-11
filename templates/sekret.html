@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekretna Strefa VIP</title>
+    <!-- Wbudowane style rozwiązujące problem wolnego ładowania strony -->
+    <style>
+        body { background-color: #030712; color: #f9fafb; font-family: sans-serif; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; margin: 0; }
+        .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; max-width: 42rem; text-align: center; padding-top: 3rem; padding-bottom: 3rem; box-sizing: border-box; }
+        .bg-card { background-color: #111827; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid rgba(234, 179, 8, 0.3); text-align: left; margin-bottom: 2rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+        .text-yellow-custom { color: #facc15; font-size: 1.875rem; line-height: 2.25rem; font-weight: 700; margin-bottom: 0.5rem; margin-top: 1rem; }
+        .back-link { font-size: 0.875rem; color: #6b7280; text-decoration: underline; display: block; margin-top: 2rem; margin-bottom: 1rem; }
+        .back-link:hover { color: #ffffff; }
+        footer { text-align: center; padding-top: 1rem; padding-bottom: 1rem; color: #4b5563; font-size: 0.75rem; background-color: #030712; }
+    </style>
+</head>
+<body>
+
+    <!-- Główna zawartość strony -->
+    <div class="container">
+        <span style="font-size: 3rem;">👑</span>
+        <h1 class="text-yellow-custom">Witaj w Sekretnej Strefie!</h1>
+        <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 2rem;">Udało Ci się wejść do strefy VIP.</p>
+
+        <!-- PROJEKT WAKACYJNEJ CHMURY DLA RODZINY -->
+        <div class="bg-card">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="font-size: 1.5rem;">📸</span>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #facc15; margin: 0;">Bezpieczna Chmura plików</h3>
+            </div>
+            <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1.5rem; line-height: 1.5;">
+                Witaj w prywatnym centrum wymiany plików! Tutaj możesz między innymi oglądać, wrzucać nowe oraz pobierać pliki na wspólnym dysku.
+            </p>
+            <span style="color: rgba(234, 179, 8, 0.8); font-size: 0.75rem;">⚠️ Uwaga: Po kliknięciu przycisku podaj hasło do plików</span>
+        </div>
+
+        <!-- WŁASNE OKNO MODALNE DO WPISYWANIA HASŁA -->
+        <div id="haslo-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 9999; align-items: center; justify-content: center;">
+            <div style="background: #151515; border: 2px solid #ffd700; border-radius: 12px; padding: 25px; max-width: 350px; width: 90%; text-align: center; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); font-family: sans-serif; color: #fff;">
+                <h4 style="color: #ffd700; margin-top: 0; font-size: 1.1rem; letter-spacing: 1px;">🔐 Bezpieczny Dostęp</h4>
+                <p id="modal-haslo-tekst" style="font-size: 0.85rem; color: #ccc; margin-bottom: 15px;">Podaj hasło dostępowe do chmury rodzinnej:</p>
+                <input type="password" id="modal-haslo-input" placeholder="Wpisz hasło..." style="width: 100%; background: #222; border: 1px solid #444; color: #fff; padding: 10px; border-radius: 6px; outline: none; font-size: 0.95rem; text-align: center; margin-bottom: 15px; box-sizing: border-box; transition: 0.2s;" onfocus="this.style.borderColor='#ffd700'">
+                <div style="display: flex; gap: 10px; justify-content: center;">
+                    <button onclick="zamknijModal()" style="background: #333; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold;">Anuluj</button>
+                    <button onclick="weryfikujHasloModal()" style="background: #ffd700; color: #000; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; box-shadow: 0 0 10px rgba(255,215,0,0.2);">Odblokuj</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- WŁASNE OKNO MODALNE ADMINA -->
+        <div id="admin-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 9999; align-items: center; justify-content: center;">
+            <div style="background: #151515; border: 2px solid #38bdf8; border-radius: 12px; padding: 22px; max-width: 320px; width: 90%; text-align: center; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); font-family: sans-serif; color: #fff;">
+                <h4 style="color: #38bdf8; margin-top: 0; font-size: 1.1rem; letter-spacing: 1px;">admin programs:</h4>
+                <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 18px; text-align: left;">program 1: auto-info na temat urządzenia</p>
+                <button onclick="pobierzProgram1()" style="background: #1f2937; color: #f8fafc; border: 1px solid #38bdf8; border-radius: 10px; padding: 10px 16px; font-size: 0.9rem; font-weight: bold; cursor: pointer; width: 100%;">pobierz program 1</button>
+                <button onclick="zamknijAdminModal()" style="margin-top: 14px; background: #333; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold;">Zamknij</button>
+            </div>
+        </div>
+
+        <!-- PRZYCISK URUCHAMIAJĄCY MODAL -->
+        <center style="margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+            <button onclick="pokazModal()" style="background: #151515; color: #ffd700; border: 2px solid #ffd700; border-radius: 10px; padding: 15px 30px; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); transition: all 0.2s ease-in-out;" onmouseover="this.style.background='#ffd700'; this.style.color='#000'; this.style.boxShadow='0 0 15px #ffd700';" onmouseout="this.style.background='#151515'; this.style.color='#ffd700'; this.style.boxShadow='0 0 10px rgba(255, 215, 0, 0.2)';">
+                📸 Wrzuć / Zobacz pliki
+            </button>
+        </center>
+
+        <!-- PRZYCISK POWROTU NA SAMYM DOLE KONTENERA -->
+        <a href="index.html" class="back-link">← Powrót do strony głównej</a>
+    </div>
+
+    <!-- GUZIK ADMIN FILES NA SAMYM DOLE -->
+    <div style="text-align: center; padding: 15px 0; background-color: #030712;">
+        <button onclick="pokazAdminModal()" style="background: transparent; color: #9ca3af; border: 1px solid #4b5563; border-radius: 10px; padding: 10px 20px; font-size: 0.85rem; font-weight: bold; cursor: pointer; width: 170px; transition: all 0.2s ease-in-out;">
+            admin files
+        </button>
+    </div>
+
+    <!-- STOPKA STRONY -->
+    <footer>
+        &copy; 2026 Sekretna Strefa VIP. Wszelkie prawa zastrzeżone.
+    </footer>
+
+    <!-- LOGIKA JAVASCRIPT (OBSŁUGA CHMURY MEGA) -->
+    <script>
+        const ZAKODOWANY_KLUCZ = "Ry0xUEx6UzBFVWdqZmg3anNRTDM0QQ=="; 
+        const BAZOWY_LINK = "https://mega.nz/folder/vt4EEAxK#"; 
+        const POPRAWNE_HASLO = "pliki-diki";
+        const ADMIN_HASLO = "admin8*8";
+
+        function pokazModal() {
+            const modal = document.getElementById("haslo-modal");
+            const input = document.getElementById("modal-haslo-input");
+            const tekst = document.getElementById("modal-haslo-tekst");
+            input.value = "";
+            input.removeAttribute("data-admin");
+            tekst.textContent = "Podaj hasło dostępowe do chmury rodzinnej:";
+            modal.style.display = "flex";
+            input.focus();
+        }
+
+        function zamknijModal() {
+            document.getElementById("haslo-modal").style.display = "none";
+        }
+
+        function pokazAdminModal() {
+            const modal = document.getElementById("haslo-modal");
+            const input = document.getElementById("modal-haslo-input");
+            const tekst = document.getElementById("modal-haslo-tekst");
+            input.value = "";
+            input.setAttribute("data-admin", "true");
+            tekst.textContent = "Wprowadź hasło aby odblokować dodatkowe programy:";
+            modal.style.display = "flex";
+            input.focus();
+        }
+
+        function weryfikujHasloModal() {
+            const wpisaneHaslo = document.getElementById("modal-haslo-input").value;
+            const isAdmin = document.getElementById("modal-haslo-input").getAttribute("data-admin") === "true";
+            const poprawne = isAdmin ? ADMIN_HASLO : POPRAWNE_HASLO;
+            if (wpisaneHaslo.trim() === poprawne) {
+                try {
+                    const odkodowanyKlucz = atob(ZAKODOWANY_KLUCZ);
+                    const pelnyLink = BAZOWY_LINK + odkodowanyKlucz;
+                    
+                    // Bezpieczny podgląd w konsoli bez blokowania wątku
+                    console.log("Mój sklejony link to:", pelnyLink);
+                    
+                    zamknijModal();
+                    if (isAdmin) {
+                        document.getElementById("admin-modal").style.display = "flex";
+                    } else {
+                        window.open(pelnyLink, "_blank");
+                    }
+                } catch (error) {
+                    alert("Błąd dekodowania klucza. Sprawdź kod z Pythona.");
+                }
+            } else {
+                alert("Niepoprawne hasło! Dostęp do chmury zablokowany.");
+            }
+        }
+
+        function zamknijAdminModal() {
+            document.getElementById("admin-modal").style.display = "none";
+        }
+
+        document.getElementById("modal-haslo-input").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") weryfikujHasloModal();
+        });
+
+        function pobierzProgram1() {
+            // Wstaw tutaj link do pliku programu 1 z GitHub.
+            // Przykład: const linkDoPliku = "https://github.com/uzytkownik/repozytorium/raw/branch/nazwa_pliku.exe";
+            const linkDoPliku = "#";
+            window.location.href = linkDoPliku;
+        }
+    </script>
+</body>
+</html>

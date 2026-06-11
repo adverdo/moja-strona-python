@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Portfolio Programisty Pythona</title>
+        <style>
+        body { background-color: #111827; color: #ffffff; font-family: sans-serif; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; margin: 0; }
+        .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; max-width: 56rem; text-align: center; padding-top: 3rem; padding-bottom: 3rem; box-sizing: border-box; }
+        .grid-cols-2 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; text-align: left; margin-bottom: 3rem; }
+        @media (min-width: 768px) { .grid-cols-2 { grid-template-columns: 1fr 1fr; } }
+        .bg-gray-800 { background-color: #1f2937; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #374151; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
+        .block { display: block; text-align: center; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.2s; }
+        .bg-blue-500 { background-color: #3b82f6; color: white; } .bg-blue-500:hover { background-color: #2563eb; }
+        .bg-green-500 { background-color: #10b981; color: white; } .bg-green-500:hover { background-color: #059669; }
+        .bg-purple-500 { background-color: #8b5cf6; color: white; } .bg-purple-500:hover { background-color: #7c3aed; }
+        .bg-yellow-500 { background-color: #eab308; color: #111827; } .bg-yellow-500:hover { background-color: #ca8a04; }
+        .bg-gray-700 { background-color: #374151; color: white; display: inline-block; padding: 0.75rem 2rem; text-decoration: none; font-weight: bold; border-radius: 0.5rem; transition: background-color 0.2s; } .bg-gray-700:hover { background-color: #4b5563; }
+        .bg-gray-900 { background-color: #111827; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid #374151; }
+        .sm\:grid-cols-2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        @media (min-width: 640px) { .sm\:grid-cols-2 { grid-template-columns: 1fr 1fr; } }
+        footer { text-align: center; padding-top: 1rem; padding-bottom: 1rem; color: #6b7280; font-size: 0.75rem; background-color: #030712; }
+        .panel-vip { max-width: 28rem; margin-left: auto; margin-right: auto; padding-top: 2rem; margin-top: 3rem; border-top: 1px solid #374151; }
+        .input-pass { width: 100%; background-color: #111827; border: 1px solid #374151; color: white; border-radius: 0.5rem; padding: 0.5rem 1rem; text-align: center; box-sizing: border-box; font-family: monospace; font-size: 1rem; margin-bottom: 0.75rem; }
+        .input-pass:focus { border-color: #3b82f6; outline: none; }
+    </style>
+
+</head>
+<body class="bg-gray-900 text-white font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Główna sekcja strony -->
+    <div class="container mx-auto px-4 py-12 max-w-4xl text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-400 mb-4">
+            witaj na naszej stronie internetowej!
+        </h1>
+        <p class="text-lg text-gray-300 max-w-xl mx-auto mb-12">
+            ta stronia jest o naszym serverze minecraft bedrock i zawiera też projekty pythona!
+        </p>
+
+        <!-- SEKCJA Z PROGRAMAMI (Siatka 2x2) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-12">
+            
+            <!-- PROGRAM 1 -->
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-blue-300 mb-2">🎮 Super Gra</h3>
+                    <p class="text-gray-400 text-sm mb-4">to gra zręcznościowa dla 2 osób. polega ona na ściganiu sie z przeciwnikiem do celu jakim jest żułty kwadrat. każde dotknięcie żułtego kwadratu zostanie zaliczone jako punkt</p>
+                </div>
+                <a href="https://github.com/adverdo/moja-strona-python/releases/download/v1.0.0/zlap_zultego_2.exe" class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition">
+                    Pobierz Grę
+                </a>
+            </div>
+
+            <!-- PROGRAM 2 -->
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-green-300 mb-2">wielofunkcyjny program</h3>
+                    <p class="text-gray-400 text-sm mb-4">w tym programi znajdziesz wiele śmiesznych i ciekawych funkcji i możliwości</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                </div>
+                <a href="https://github.com/adverdo/moja-strona-python/releases/download/v.1.0.1/wielofunkcyjne.exe" class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition">
+                    Pobierz wielofunkcyjny program
+                </a>
+            </div>
+
+            <!-- PROGRAM 3 -->
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-purple-300 mb-2">szyfrator tekstu</h3>
+                    <p class="text-gray-400 text-sm mb-4">ten program pozwala na wpisanie dowolnego ciągu słów i zmieni go w zaszyfrowany tekst.</p>
+                </div>
+                <a href="https://github.com/adverdo/moja-strona-python/releases/download/v1.0.3/szyfrator.exe" class="block text-center bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition">
+                    Pobierz szyfrator
+                </a>
+            </div>
+
+            <!-- PROGRAM 4 -->
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-2">deszyfrator</h3>
+                    <p class="text-gray-400 text-sm mb-4">ten program pozwala odszyfrować tekst zaszyfrowany za pomocą szyfratora.</p>
+                </div>
+                <a href="https://github.com/adverdo/moja-strona-python/releases/download/v1.0.2/deszyfrator.exe" class="block text-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition">
+                    Pobierz deszyfrator
+                </a>
+            </div>
+
+        </div>
+
+        <!-- SEKCJA SERWERA MINECRAFT BEDROCK -->
+        <div class="bg-gray-800" style="max-w: 42rem; margin-left: auto; margin-right: auto;"></div>
+            <h2 class="text-2xl font-extrabold text-yellow-400 mb-2 flex items-center justify-center md:justify-start gap-2">
+                🎮 Legendary Server — nasz autorski server Minecraft Bedrock Edition
+            </h2>
+            <p class="text-gray-400 text-sm mb-6 text-center md:text-left">
+                Dołącz do naszego oficjalnego serwera Minecraft Bedrock i graj razem z nami! Serwer stoi na hostingu Aternos.
+            </p>
+
+            <!-- DANE SERWERA (IP ORAZ PORT) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-center sm:text-left">
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700">
+                    <span class="text-xs text-blue-400 font-bold uppercase tracking-wider block mb-1">🌐 Adres/IP: </span>
+                    <code class="text-base text-white font-mono font-bold">legendaryserver.aternos.me</code>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700">
+                    <span class="text-xs text-green-400 font-bold uppercase tracking-wider block mb-1">🔢 Port: </span>
+                    <code class="text-base text-white font-mono font-bold">42478</code>
+                </div>
+            </div>
+
+                <!-- Przycisk Aternos -->
+                <a href="https://aternos.org" target="_blank" class="flex items-center justify-center gap-2 bg-[#1d528f] hover:bg-[#163f6e] text-white font-bold py-3 px-4 rounded-lg transition text-center">
+                    ⚡ Odpal Serwer na Aternos
+                </a>
+            </div>
+
+            <!-- DANE LOGOWANIA DO KONTA ROZRUCHOWEGO ATERNOS -->
+            <div class="bg-gray-900 p-4 rounded-lg border border-gray-700 text-center sm:text-left">
+                <p class="text-xs text-yellow-500 font-bold uppercase tracking-wider mb-2">
+                    🔑 Dane do konta Aternos
+                </p>
+                <div class="flex flex-col sm:flex-row justify-between text-sm text-gray-300 gap-2">
+                    <div><span class="text-gray-500 font-semibold">Login:</span> <code class="bg-gray-850 px-2 py-0.5 rounded text-yellow-300 font-mono">server_starting_123</code></div>
+                    <div><span class="text-gray-500 font-semibold">Hasło:</span> <code class="bg-gray-850 px-2 py-0.5 rounded text-yellow-300 font-mono">haslo123</code></div>
+                </div>
+                <p class="text-[11px] text-gray-500 mt-2 italic">
+                    Użyj tych danych na stronie Aternosa, jeśli serwer jest wyłączony!
+                </p>
+            </div>
+        </div>
+
+        <!-- LINK DO PROFILU GITHUB -->
+        <a href="https://github.com" target="_blank" class="inline-block bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition">
+            Zobacz mój profil na GitHub 📁
+        </a>
+    </div>
+
+    <!-- Stopka strony -->
+    <footer class="text-center py-4 text-gray-500 text-xs bg-gray-950">
+        &copy; 2026 Moje Portfolio Pythona. Wszelkie prawa zastrzeżone.
+    </footer>
+
+</body>
+</html>
+ <!-- SEKRETNY PANEL LOGOWANIA NA DOLE STRONY -->
+    <div class="container mx-auto px-4 py-8 max-w-md text-center mt-12 border-t border-gray-800">
+        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">🔒 Strefa VIP / Dodatkowa zawartość</h3>
+        <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 flex flex-col sm:flex-row gap-2">
+            <input type="password" id="secret-password" placeholder="Wpisz tajne hasło..." 
+                   class="w-full bg-gray-900 border border-gray-700 text-white rounded-lg px-3 py-2 text-center text-sm focus:outline-none focus:border-blue-500 font-mono">
+            <button onclick="checkSecretPassword()" 
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg text-sm transition whitespace-nowrap">
+                Wejdź
+            </button>
+        </div>
+        <p id="secret-error" class="text-red-400 text-xs mt-2 hidden">❌ Niepoprawne hasło!</p>
+    </div>
+
+    <!-- SKRYPT OBSŁUGUJĄCY PRZEKIEROWANIE -->
+    <script>
+        function checkSecretPassword() {
+            const password = document.getElementById("secret-password").value;
+            const errorMsg = document.getElementById("secret-error");
+
+            // Jeśli hasło to "veryvip11", przenosimy użytkownika na ukrytą podstronę sekret.html
+            if (password === "veryvip11") {
+                window.location.href = "sekret.html";
+            } else {
+                errorMsg.classList.remove("hidden");
+                document.getElementById("secret-password").value = "";
+            }
+        }
+
+        // Logowanie za pomocą klawisza Enter
+        document.getElementById("secret-password").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkSecretPassword();
+            }
+        });
+    </script>
