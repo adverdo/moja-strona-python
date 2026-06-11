@@ -1,6 +1,10 @@
+import os
 from flask import Flask, render_template
 
-app = Flask(__name__)
+base_dir = os.path.dirname(os.path.abspath(__file__))
+templates_path = os.path.join(base_dir, "templates")
+
+app = Flask(__name__, template_folder=templates_path)
 
 # Główna strona (wczytuje plik index.html z folderu templates)
 @app.route("/")
